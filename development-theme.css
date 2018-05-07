@@ -1,0 +1,317 @@
+/*******************/
+/* GOOGLE CHAT CSS */
+/*******************/
+
+/*************************/
+/*  HEADER CSS           */
+/*************************/
+
+/* Header block */
+.OVbIKc {
+	border: 1px dashed magenta;
+}
+
+/* Header Sidebar's part */
+.Riuhhf {
+	background: yellow;  
+}
+
+/* Header Content's part */
+.QTQg5e {
+	box-shadow: inset 0px -5px 2px red;
+}
+
+/* Juste le logo Chat en svg */
+#XMLID_53_-Clipped{
+ 	/*display: none; */
+  fill: green;
+}
+
+/* Juste le mot "Chat" du logo en svg */
+#XMLID_8_-Clipped {
+	fill: red;
+}
+
+/* Pour rajouter un autre logo en svg à la place du logo Chat */
+.SZ9zpc:before{
+ 	/*content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 540"></svg>');
+	display:block;
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  top: 15px; left: 23px;*/
+}
+
+/* Couleur des icônes dans le menu du channel */
+.o50UJf{
+	fill: red;
+	border: 1px dashed red;
+}
+
+/* Nom du channel */
+.nk7hB {
+	border: 1px solid red;
+}
+
+/* Nombre de personne dans le channel */
+.xzTN8b {
+	border: 1px solid blue;
+}
+
+/* Message "Laisser un avis" */
+.Jrbdv {
+  border: 1px solid purple;
+}
+
+
+/**************************/
+/*  SIDEBAR CSS           */
+/**************************/
+
+/* Sidebar Block */
+.X9KLPc {
+	background: yellow;
+}
+
+/* Search Button */
+.GbZFNe {
+	background: cyan;
+}
+
+/* "Plus" icon" in Search Button */
+.X9KLPc .D3DXDc {
+	fill: red;
+}
+
+/* Search Button hovered */
+.GbZFNe:hover, .GbZFNe:focus {
+  background: red; 
+}
+
+/* Rond online devant la personne connecté dans la sidebar */
+.Qgwczb {
+	background-color: blue;
+}
+
+/* Name of User/Channel/Bot */
+.X9KLPc .t5F5nf.NXfF8b {
+  color: blue;
+}
+
+/* Color of text hovered in items */
+.X9KLPc .PL5Wwe:hover .t5F5nf.NXfF8b, .wAR34c{
+	color: purple;
+}
+
+/* Separation & title */
+.aOHsTc {
+  color: cyan;
+}
+
+/* item hovered */
+.teTAFe .PL5Wwe:focus, .teTAFe .PL5Wwe:hover:not(.tuKyod), .teTAFe .tuKyod:hover .LoYJxb {
+	background: orange;
+}
+
+/* item active */
+.teTAFe .PL5Wwe.KKjvXb:not(.tuKyod), .teTAFe .PL5Wwe.qs41qe:not(.tuKyod), .nz9RLc {
+	background: red;
+}
+
+/* Channel Name with mentions not read */
+.X9KLPc .PL5Wwe.H7du2 .t5F5nf, .X9KLPc .PL5Wwe.KKjvXb .t5F5nf, .X9KLPc .PL5Wwe.KKjvXb .sFuxxd, .GSEpfc .t5F5nf, .IliFSc {
+  color: red;
+  border: 1px solid red;
+}
+
+/* Channel date */
+.PL5Wwe.H7du2 .sFuxxd, .wR3Nid {
+  color: blue;
+}
+
+/* Channel active Name */
+.IL9EXe.PL5Wwe.qs41qe .t5F5nf {
+  color: cyan;
+  border: 1px solid cyan;
+}
+
+/* Channel active date */
+.PL5Wwe.qs41qe .sFuxxd {
+  color: cyan;
+  border: 1px solid cyan;
+}
+
+/* Infobulle du nombre de mention après le nom d'une personne/channel dans la sidebar */
+.eM5l9e {
+  background-color: blue;
+}
+
+/* 3 dots icon when you hover a channel */
+.QeRfYe {
+  fill: cyan;
+}
+
+/* 3 dots icon hovered */
+.QeRfYe:hover {
+  fill: red;
+}
+
+
+/*****************************************/
+/*  Search Menu in Sidebar CSS           */
+/*****************************************/
+
+/* Search Block */
+.yoV6yd {
+  background: red;
+}
+
+/* Search Hidden Block */
+.d6pS5.i6oIBe .W2x1cc {
+	background: magenta;
+}
+
+/* "Close" icon */
+.w6RqOb .D3DXDc {
+	fill: white;
+}
+
+/* "Close" icon Block */
+.w6RqOb {
+	background: cyan;
+}
+
+/* Close icon hovered */
+.w6RqOb:hover .FNTJIe{
+	fill: red;
+}
+
+/* Search box */
+.tOToeb {
+	background: blue;
+}
+
+/* Search text box */
+.Uk0Bfe .zHQkBf {
+	color: white;
+}
+
+/* Background of items in Search Block */
+/* The polygon is used for eye of Android icon svg */
+.PL5Wwe.dQ2Tsf.tY31oc, .PL5Wwe.eSvkof.WD3P7.dQ2Tsf.QkmJH, .PL5Wwe.dQ2Tsf, .PL5Wwe.dQ2Tsf.tY31oc g g g polygon{
+	fill: magenta;
+  background: magenta;
+}
+
+/* Background hover of items in Search Box */
+.PL5Wwe.dQ2Tsf.tY31oc:hover, .PL5Wwe.eSvkof.WD3P7.dQ2Tsf.QkmJH:hover, .PL5Wwe.dQ2Tsf:hover{
+	background: red;
+}
+
+/* Color of icons in items */
+.PL5Wwe.dQ2Tsf.tY31oc svg, .PL5Wwe.dQ2Tsf.tY31oc svg g g path{
+	fill: white;
+}
+
+/* Color of text hovered in items */
+.yoV6yd .PL5Wwe:hover .t5F5nf.NXfF8b, .wAR34c{
+	color: white;
+}
+
+/* Name of Channel */
+.yoV6yd .t5F5nf.NXfF8b {
+  color: cyan;
+}
+
+/* Name of User/Bot */
+/* (color must be with !important) */
+.yoV6yd .ZTmjQb {
+	color: cyan !important;
+}
+
+/* Channel Name with mentions not read */
+.yoV6yd .PL5Wwe.H7du2 .t5F5nf, .yoV6yd .PL5Wwe.KKjvXb .t5F5nf, .yoV6yd .PL5Wwe.KKjvXb .sFuxxd {
+  color: yellow;
+  border: 1px solid yellow;
+}
+
+
+/* Description text above Name */
+.yoV6yd .Kfe2Ub {
+  color: cyan;
+}
+
+
+/**************************/
+/*  CONTENT CSS           */
+/**************************/
+
+/* Content Block */
+.DLc2vb {
+  border: 1px solid red;
+}
+
+/* Head of Content */
+.mTRrYc {
+  background: orange;
+}
+
+/* Liens */
+a {
+  color: red;
+}
+
+/* Text "Non lus" */
+.Fv5sh{
+	color: red;
+  border: 1px solid red;
+}
+
+/* icônes d'information hors des messages */
+.ZlQIRd, .ZGAbn {
+	fill: blue;
+  border: 1px dotted blue;
+}
+
+/* Text "Répondre" */
+.m3sLHf {
+	color: blue;
+  border: 1px solid red;
+}
+
+/* Bouton "Ajouter" tout en haut d'un channel */
+.pihjkd {
+	color: red;
+}
+
+/* Mention "@" dans un message */
+.fWwrkf {
+  color: green;
+  border: 1px solid blue;
+}
+
+/* "Nouveau" in new message */
+.nxYf0b {
+	background: red;
+}
+
+/* Color of "Nouveau" in new message */
+.c9Nhzb {
+	color: blue;
+}
+
+/* Messages hovered */
+.cmEq8b:hover, .cmEq8b:hover .jGyvbd, .cmEq8b:hover .oGsu4, .cmEq8b:hover .AflJR, .nF6pT.FwR7Pc .Hj5Fxb, .hu21Y:hover {
+	background: orange;
+}
+
+/* Message "Nouvelle conversation" apparaissant lorsqu'on écrit un nouveau thread */
+.pyNvz {
+	color: yellow;
+  border: 3px dotted green;
+}
+
+/* Survol du message "Nouvelle conversation dans ..." */
+.RnpT2b:focus .SfqTBc, .SfqTBc:hover {
+	color: magenta;
+}
