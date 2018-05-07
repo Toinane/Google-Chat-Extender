@@ -1,0 +1,600 @@
+/*******************/
+/* GOOGLE CHAT CSS */
+/*******************/
+:root {
+  --header_border_sidebar: #222327;
+  --header_border_content: #292B2F;
+  --header_background_search: #4A4C52;
+  --header_color_primary: #F8FFFF;
+  --header_color_secondary: #A0A1A1;
+  --header_color_icon: #A0A2A5;
+  --header_color_hover_icon: #CBCCCD;
+  
+	--sidebar_background: #2F3136;
+  --sidebar_background_search: #26272B;
+  --sidebar_background_item_active: #42464D;
+  --sidebar_background_item_hover: #36393F;
+ 	--sidebar_color_item: #71757C;
+  --sidebar_color_item_hover: #B9BBBE;
+  --sidebar_color_item_active: #F6F6F7;
+	--sidebar_color_item_new: #DCDDDE;
+  --sidebar_color_online_member: #35AD74;
+  --sidebar_background_new_message: #6C6F77;
+  --sidebar_background_new_mention: #DD4545;
+  --sidebar_color_new_message: #FFFFFF;
+  
+  --content_background: #36393F;
+  --content_background_reaction: #36393E;
+  --content_color_separator: #474A4F;
+  --content_color_message_separator: #3E4146;
+  --content_color_primary: #DBDBDC;
+  --content_color_secondary: #868F9B;
+  --content_color_tertiary: #67696F;
+  --content_color_link: #0096CF;
+  --content_background_mention: #3F4666;
+ 	--content_background_mention_hover: #6173A9;
+  --content_color_mention: #768CEE;
+  --content_background_reply: #484B52;
+  --content_color_reply: #7D7F84;
+}
+
+
+/*************************/
+/*  HEADER CSS           */
+/*************************/
+
+/* Header block */
+.OVbIKc {
+}
+
+/* Header Sidebar's part */
+.Riuhhf {
+  width: 300px;
+  border-bottom: 1px solid var(--header_border_sidebar);
+	background: var(--sidebar_background);
+}
+
+/* Header Content's part */
+.QTQg5e {
+  border-bottom: 1px solid var(--header_border_content);
+	background: var(--content_background);
+}
+
+/* Juste le logo Chat en svg */
+#XMLID_53_-Clipped{
+ 	display: none;
+}
+
+/* Juste le mot "Chat" du logo en svg */
+#XMLID_8_-Clipped {
+	fill: var(--header_color_primary);
+  opacity: 1;
+}
+
+.SZ9zpc{
+  padding-left: 31px;
+}
+
+/* Pour rajouter un autre logo en svg à la place du logo Chat */
+.SZ9zpc:before{
+  content: 'Discord';
+  position: absolute;
+  top: 19px; left: 20px;
+  font-weight: bold;
+  color: var(--header_color_primary);
+ 	/*content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 540"><defs><style>.cls-1{fill:#1bc74e;}</style></defs><g><g><path class="cls-1" d="M289.35,109.64c-87.68,25-156.22,94.58-180.31,182.51-25.61,93.47-2.24,182.28,50.1,246.57L114.63,615a15.55,15.55,0,0,0,13.43,23.39h193V438c0-25.67,20-45.63,45.63-45.63s45.63,20,45.63,45.63V634.74c128.31-20.91,226.27-132.17,226.27-266.38C638.61,193.5,472.4,57.47,289.35,109.64Zm78.3,235.18c-29.47,0-55.14-24.72-55.14-55.14s25.67-57,55.14-57c31.37,0,57,26.62,57,57S399,344.81,367.66,344.81Z" transform="translate(-98.61 -98.36)"/></g></g></svg>');
+	display:block;
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  top: 15px; left: 23px;*/
+}
+
+/* Couleur des icônes dans le menu du channel */
+.o50UJf{
+	fill: var(--header_color_icon);
+}
+
+.i5PBGe:hover, .i5PBGe:focus, .i5PBGe.iWO5td, .i5PBGe:active {
+	background: var(--header_background_search);
+}
+
+/* Nom du channel */
+.nk7hB {
+	color: var(--header_color_primary);
+}
+
+/* Nombre de personne dans le channel */
+.xzTN8b, .Hk2Ppb, .UZl8cf.RtLpid {
+	background: none;
+  fill: var(--header_color_secondary);
+  color: var(--header_color_secondary);
+}
+
+/* Message "Laisser un avis" */
+.Jrbdv {
+ 	display: none;
+}
+
+.Nj8aCb {
+	fill: var(--header_color_icon);
+}
+
+.Nj8aCb:hover, .Nj8aCb:focus, .Nj8aCb:active, .FWvJ9.iWO5td {
+	background: none;
+  fill: var(--header_color_hover_icon);
+}
+
+#gb#gb a.gb_b {
+  background-position: -35px -1316px;
+}
+
+.gb_Rc, .gb_Rc:hover, .gb_Rc:focus, .gb_Rc:active {
+	background-color: none;
+}
+
+.gb_Rc.gb_Sc {
+ width: 23px;
+ height: 24px;
+ border-radius: 0;
+ background-position: -35px -1356px; 
+ opacity: 0.55;
+}
+
+#gb#gb a.gb_b:hover .gb_Rc.gb_Sc {
+  opacity: 0.8;
+}
+
+
+
+/**************************/
+/*  SIDEBAR CSS           */
+/**************************/
+
+/* Sidebar Block */
+.X9KLPc {
+  width: 300px;
+  border: none;
+	background: var(--sidebar_background);
+}
+
+/* Search Button */
+.GbZFNe {
+	background: var(--sidebar_background_search);
+  width: 260px;
+  height: 20px;
+  border: 1px solid #222327;
+  margin-left: 20px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+/* "Plus" icon" in Search Button */
+.X9KLPc .D3DXDc {
+	fill: var(--header_color_secondary);
+}
+
+/* Search Button hovered */
+.GbZFNe:hover, .GbZFNe:focus {
+ 	background: var(--sidebar_background_search);
+}
+
+/* Rond online devant la personne connecté dans la sidebar */
+.Qgwczb {
+	background-color: var(--sidebar_color_online_member);
+}
+
+/* Name of User/Channel/Bot */
+.X9KLPc .t5F5nf.NXfF8b {
+  color: var(--sidebar_color_item);
+  font-weight: bold;
+}
+
+/* Color of text hovered in items */
+.X9KLPc .PL5Wwe:hover .t5F5nf.NXfF8b, .wAR34c{
+	color: var(--sidebar_color_item_hover);
+}
+
+/* Separation & title */
+.aOHsTc {
+  color: var(--sidebar_color_item);
+  font-weight: bold;
+}
+
+/* item hovered */
+.teTAFe .PL5Wwe:focus, .teTAFe .PL5Wwe:hover:not(.tuKyod), .teTAFe .tuKyod:hover .LoYJxb {
+	background: var(--sidebar_background_item_hover);
+}
+
+/* item active */
+.teTAFe .PL5Wwe.KKjvXb:not(.tuKyod), .teTAFe .PL5Wwe.qs41qe:not(.tuKyod), .nz9RLc {
+	background: var(--sidebar_background_item_active);
+}
+
+/* Channel Name with mentions not read */
+.X9KLPc .PL5Wwe.H7du2 .t5F5nf, .X9KLPc .PL5Wwe.KKjvXb .t5F5nf, .X9KLPc .PL5Wwe.KKjvXb .sFuxxd, .GSEpfc .t5F5nf, .IliFSc {
+  color: var(--sidebar_color_item_new);
+}
+
+/* Channel date */
+.PL5Wwe.H7du2 .sFuxxd, .wR3Nid {
+  color: var(--sidebar_color_item);;
+}
+
+/* Channel active Name */
+.IL9EXe.PL5Wwe.qs41qe .t5F5nf {
+  color: var(--sidebar_color_item_active);;
+}
+
+/* Channel active date */
+.PL5Wwe.qs41qe .sFuxxd {
+  color: var(--sidebar_color_item_hover);
+}
+
+/* Infobulle du nombre de mention après le nom d'une personne/channel dans la sidebar */
+.eM5l9e {
+  min-width: 1px;
+  border-radius: 3px;
+  background-color: var(--sidebar_background_new_mention);
+}
+
+/* 3 dots icon when you hover a channel */
+.QeRfYe {
+  fill: var(--header_color_icon);
+}
+
+/* 3 dots icon hovered */
+.QeRfYe:hover {
+  fill: var(--header_color_hover_icon);
+}
+
+
+/*****************************************/
+/*  Search Menu in Sidebar CSS           */
+/*****************************************/
+
+/* Search Block */
+.yoV6yd {
+ background: red;
+}
+
+/* Search Hidden Block */
+.d6pS5.i6oIBe .W2x1cc {
+	background: magenta;
+}
+
+/* "Close" icon */
+.w6RqOb .D3DXDc {
+	fill: white;
+}
+
+/* "Close" icon Block */
+.w6RqOb {
+	background: cyan;
+}
+
+/* Close icon hovered */
+.w6RqOb:hover .FNTJIe{
+	fill: red;
+}
+
+/* Search box */
+.tOToeb {
+	background: blue;
+}
+
+/* Search text box */
+.Uk0Bfe .zHQkBf {
+	color: white;
+}
+
+/* Background of items in Search Block */
+/* The polygon is used for eye of Android icon svg */
+.PL5Wwe.dQ2Tsf.tY31oc, .PL5Wwe.eSvkof.WD3P7.dQ2Tsf.QkmJH, .PL5Wwe.dQ2Tsf, .PL5Wwe.dQ2Tsf.tY31oc g g g polygon{
+	fill: magenta;
+  background: magenta;
+}
+
+/* Background hover of items in Search Box */
+.PL5Wwe.dQ2Tsf.tY31oc:hover, .PL5Wwe.eSvkof.WD3P7.dQ2Tsf.QkmJH:hover, .PL5Wwe.dQ2Tsf:hover{
+	background: red;
+}
+
+/* Color of icons in items */
+.PL5Wwe.dQ2Tsf.tY31oc svg, .PL5Wwe.dQ2Tsf.tY31oc svg g g path{
+	fill: white;
+}
+
+/* Color of text hovered in items */
+.yoV6yd .PL5Wwe:hover .t5F5nf.NXfF8b, .wAR34c{
+	color: white;
+}
+
+/* Name of Channel */
+.yoV6yd .t5F5nf.NXfF8b {
+  color: cyan;
+}
+
+/* Name of User/Bot */
+/* (color must be with !important) */
+.yoV6yd .ZTmjQb {
+	color: cyan !important;
+}
+
+/* Channel Name with mentions not read */
+.yoV6yd .PL5Wwe.H7du2 .t5F5nf, .yoV6yd .PL5Wwe.KKjvXb .t5F5nf, .yoV6yd .PL5Wwe.KKjvXb .sFuxxd {
+  color: yellow;
+  border: 1px solid yellow;
+}
+
+
+/* Description text above Name */
+.yoV6yd .Kfe2Ub {
+  color: cyan;
+}
+
+
+/**************************/
+/*  CONTENT CSS           */
+/**************************/
+
+/* Content Block */
+.DLc2vb {
+  background: var(--content_background);
+}
+
+/* Head of Content */
+.mTRrYc {
+  border-bottom: 1px solid var(--content_color_separator);
+}
+
+/* Head Title */
+.tCUB4c {
+	color: var(--content_color_mention);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Creator of channel description */
+.K163bd {
+	color: var(--content_color_secondary); 
+}
+
+.Bl2pUd, .dsoUjb, .oGsu4, .XbbXmb.zzVqCe .nF6pT, .jGyvbd .jO0Dzb {
+	background: var(--content_background); 
+}
+
+/* Liens */
+a {
+  color: var(--content_color_link);
+}
+
+/* Text "Non lus" */
+.Fv5sh{
+	color: var(--sidebar_background_new_mention);
+}
+
+/* icônes d'information hors des messages */
+.ZlQIRd, .ZGAbn {
+	fill: var(--content_color_primary);
+}
+
+/* Text "Répondre" */
+.m3sLHf, .vmpzOc.eO2Zfd {
+	border: none;
+  border-radius: 4px;
+  background: var(--content_background_reply);
+  margin-bottom: 15px;
+  margin-left: 10px;
+  color: var(--content_color_reply);
+}
+
+.CKEQkc:hover:not(.RDPZE) .m3sLHf, .CKEQkc:focus:not(.RDPZE) .m3sLHf {
+	color: var(--content_color_reply);
+  background: var(--content_background_reply);
+}
+
+/* Bouton "Ajouter" tout en haut d'un channel */
+.pihjkd {
+	color: var(--content_color_mention);
+}
+
+.O0WRkf.qs41qe .CeoRYc, .O0WRkf.u3bW4e .CeoRYc, .O0WRkf:not(.RDPZE):focus .CeoRYc {
+	background: var(--content_background_mention); 
+}
+
+.cZICLc.ajCeRb {
+	border-top: 1px solid var(--content_color_tertiary);
+  border-bottom: 1px solid var(--content_color_tertiary);
+}
+
+.cZICLc.ajCeRb + .cZICLc.ajCeRb {
+	border-top: none; 
+}
+
+/* notification actived for thread */
+.otWEZc {
+  fill: var(--content_color_mention);
+}
+
+/* notification desactived for thread */
+.v406G .GfYBMd {
+  fill: var(--header_color_icon);
+}
+
+/* Mention "@" dans un message */
+.fWwrkf {
+  color: var(--content_color_mention);
+  background: var(--content_background_mention);
+  transition: 0.1s;
+}
+
+.fWwrkf:hover {
+	color: var(--header_color_primary);
+  background: var(--content_background_mention_hover);
+}
+
+.Jqvwfe{
+	background: #00897A;
+  border: 1px solid #00897B;
+  color: var(--header_color_primary);
+}
+
+/* Messages scindés */
+.zPVzl {
+	background: none;
+  color: var(--content_color_secondary);
+}
+
+/* "Nouveau" in new message */
+.nxYf0b {
+	background: var(--sidebar_background_new_mention);
+}
+
+/* Color of "Nouveau" in new message */
+.c9Nhzb {
+	
+}
+
+/* Events Messages */
+.A2BXPe {
+	color: var(--content_color_secondary);
+}
+
+/* Message Box */
+.nF6pT + .nF6pT {
+  margin-top: 10px;
+	border-top : 1px solid var(--content_color_message_separator);
+}
+
+/* Fix increments messages */
+.jGyvbd .jO0Dzb .COKy9b {
+	margin-top: 0; 
+}
+
+/* Inline Code Message */
+.U8d2H {
+	color: var(--content_color_primary);
+  background: var(--content_background_mention);
+  border: 1px solid var(--content_color_mention);
+}
+
+/* Code Message */
+.FMTudf {
+	color: var(--content_color_primary);
+  border: 1px solid var(--content_color_mention);
+  background: var(--content_background_mention);
+  border-left-width: 8px;
+}
+
+/* Gif Message */
+.fO3OPc.rilKTc.Xsrtnf.ZK1Fkf {
+	border: none !important; 
+}
+
+/* Box Embed Message */
+.fO3OPc.rilKTc.Xsrtnf {
+	background: var(--sidebar_background); 
+}
+
+.VQqIvc.cn0Dzf.uEGJCe.ZK1Fkf span, .Mgnj7c.wy9z0d.nTKKUb.QXWkod.ZK1Fkf span {
+	color: var(--content_color_primary) !important; 
+}
+
+.VQqIvc.cn0Dzf.uEGJCe.ZK1Fkf div {
+	background: var(--header_border_sidebar) !important; 
+}
+
+
+/* Dates Messages */
+.b8Cb3d, .uiGDte {
+	color: var(--content_color_tertiary); 
+}
+
+/* Name of Message */
+.cmEq8b .Z4BnXb {
+	color: var(--header_color_primary);
+  font-weight: bold;
+}
+
+/* Messages */
+.cmEq8b .Zc1Emd {
+  color: var(--content_color_primary);
+  
+}
+
+.dsoUjb.FwR7Pc {
+	box-shadow: none; 
+}
+
+/* Messages hovered */
+.cmEq8b:hover, .cmEq8b:hover .jGyvbd, .cmEq8b:hover .oGsu4, .cmEq8b:hover .AflJR, .nF6pT.FwR7Pc .Hj5Fxb, .hu21Y:hover {
+	background: none;
+}
+
+/* Message "Nouvelle conversation" apparaissant lorsqu'on écrit un nouveau thread */
+.pyNvz {
+	color: var(--content_color_primary);
+}
+
+.RnpT2b {
+	border: none;
+  border-radius: 4px;
+  background: var(--content_background_reply);
+  margin-bottom: 15px;
+  margin-left: 10px;
+  height: 43px;
+}
+
+.B2Lwp {
+	background: none; 
+}
+
+.i6q1kd {
+	fill: var(--content_color_reply); 
+}
+
+.i6q1kd #Path {
+	fill: var(--content_background_reply); 
+}
+
+.lSSahb {
+	position: relative;
+  top: 2px;
+}
+
+.SfqTBc {
+	color: var(--content_color_reply);
+}
+
+.bzJiD .IEIJqd.qs41qe .XganBc, .IEIJqd .I0LFzc {
+	background: var(--content_background_reply);
+  box-shadow: none;
+  border-radius: 4px;
+}
+
+.I0LFzc, .XganBc {
+	min-height: 42px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+.igYHTd {
+  color: var(--content_color_primary);
+}
+
+.EFNTcf svg {
+	fill: var(--content_color_reply); 
+}
+
+.EFNTcf svg:hover {
+	fill: var(--header_color_icon); 
+}
+
+
+/* Survol du message "Nouvelle conversation dans ..." */
+.RnpT2b:focus .SfqTBc, .SfqTBc:hover {
+  color: var(--content_color_reply);
+	cursor: text;
+}
