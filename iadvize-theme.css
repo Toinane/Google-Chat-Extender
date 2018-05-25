@@ -153,6 +153,7 @@ a, .Fv5sh{
 
 
 
+
 .w6RqOb {
   position: absolute;
   top: -38px;
@@ -226,4 +227,21 @@ a, .Fv5sh{
 
 .nF6pT.FwR7Pc .Hj5Fxb, .hu21Y:hover {
  background-color: var(--chat_message_background_hover); 
+}
+
+.CssSP {
+  background: #2BC554;
+}
+
+.zh742e.FwR7Pc .Jqvwfe, .zh742e:hover .Jqvwfe {
+  background: #2BC554;
+  border-color: #2BC554;
+}
+
+.PL5Wwe.tuKyod:focus .PL5Wwe.tuKyod:active{
+	background: none; 
+}
+
+.tuKyod:focus .LoYJxb, .tuKyod:active .LoYJxb, .teTAFe .PL5Wwe:focus{
+	background: none;
 }
