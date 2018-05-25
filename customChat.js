@@ -1,8 +1,23 @@
 'use strict'
 
+const fs = require('fs');
 const {app, webContents} = require('electron');
 
-const coreSystem = `
+function findPlugins(chat) {
+  console.log('Load Custom Plugins...');
+  fs.readdir('./plugins', function(err, files) {
+    if (err) return console.log('No plugins folded found. Skipping loading plugins..');
+    files.forEach(function(file) {
+      fs.readFile(`./plugins/${file}`, 'utf-8', function(err, content) {
+        if (err) return console.log('Custom Plugin ' + file + ' found, but we can\'t load it. Skipping it..');
+        chat.executeJavaScript(content);
+        console.log('Loaded Custom Plugin: ' + file)
+      })
+    })
+  })
+}
+
+const coreSystemParser = `
   let activate = localStorage.getItem('activate') || '';
   let theme = localStorage.getItem('theme') || '';
 
@@ -83,9 +98,11 @@ app.on('browser-window-created', function(event, win) {
   
   //chat.openDevTools()
   chat.on('dom-ready', function() {
-    console.log("Initializing Custom Styling Parser");
+    if(chat.history[0] !== 'https://chat.google.com/') return; // Load CSP & CP only on Chat window. Delete this line if CSP doesn't work.
+
+    console.log("Initializing Custom Styling Parser..");
     chat.insertCSS(coreCSS);
-    chat.executeJavaScript(coreSystem);
+    chat.executeJavaScript(coreSystemParser);
 
     chat.executeJavaScript(`
       window.onload = function () {
@@ -97,6 +114,9 @@ app.on('browser-window-created', function(event, win) {
         document.head.appendChild(style);
       }
     `);
+
+    findPlugins(chat);
+    console.log("Custom Styling Parser loaded!");
   });
 })
 
