@@ -2,19 +2,30 @@
 
 const fs = require('fs');
 const {app, webContents} = require('electron');
+let chat;
 
 function findPlugins(chat) {
-  console.log('Load Custom Plugins...');
-  fs.readdir('./plugins', function(err, files) {
-    if (err) return console.log('No plugins folded found. Skipping loading plugins..');
+  log('initializing plugins', 'warn');
+  fs.readdir(__dirname + '/plugins', function(err, files) {
+    if (err) return log('Plugins folder missing', 'error');
     files.forEach(function(file) {
-      fs.readFile(`./plugins/${file}`, 'utf-8', function(err, content) {
-        if (err) return console.log('Custom Plugin ' + file + ' found, but we can\'t load it. Skipping it..');
+      fs.readFile(__dirname + `/plugins/${file}`, 'utf-8', function(err, content) {
+        if (err) return log(file + ' Plugin found, but we can\'t load it', 'error');
         chat.executeJavaScript(content);
-        console.log('Loaded Custom Plugin: ' + file)
+        log(file + ' Plugin loaded!', 'ok')
       })
     })
   })
+}
+
+function log(text, type) {
+  let css = {
+    'warn': 'color: red; background: yellow;text-transform:uppercase;font-size:2em;',
+    'error': 'color: white; background: red;text-transform:uppercase;font-size:2em;',
+    'ok': 'color: white; background: #52CE80;text-transform:uppercase;font-size:2em;'
+  }
+  console.log('[     0.000][INFO ][GCE    ###]', text);
+  if(chat) chat.executeJavaScript('console.log("%c'+text+'", "'+css[type]+'");');
 }
 
 const coreSystemParser = `
@@ -22,7 +33,7 @@ const coreSystemParser = `
   let theme = localStorage.getItem('theme') || '';
 
   let options = document.querySelector('.JAPqpe');
-  let item  = '<content class="z80M1" id="custom-button" jsaction="click:o6ZaF(preventDefault=true); mousedown:lAhnzb; mouseup:Osgxgf; mouseenter:SKyDAe; mouseleave:xq3APb; touchstart:jJiBRc; touchmove:kZeBdd; touchend:VfAz8(preventMouseEvents=true)"><div class="uyYuVb"><div class="j07h3c">Paramètres de personnalisation</div></div></content><div class="kCtYwe" role="separator"></div>';
+  let item  = '<content class="z80M1" id="custom-button" jsaction="click:o6ZaF(preventDefault=true); mousedown:lAhnzb; mouseup:Osgxgf; mouseenter:SKyDAe; mouseleave:xq3APb; touchstart:jJiBRc; touchmove:kZeBdd; touchend:VfAz8(preventMouseEvents=true)"><div class="uyYuVb"><div class="j07h3c">Google Chat Extender</div></div></content><div class="kCtYwe" role="separator"></div>';
   options.innerHTML = item + options.innerHTML;
 
   function openCustomMenu() {
@@ -94,15 +105,16 @@ const coreCSS = `
 `;
 
 app.on('browser-window-created', function(event, win) {
-  const chat = win.webContents;
-  
-  //chat.openDevTools()
+  chat = win.webContents;
+
+  chat.openDevTools()
   chat.on('dom-ready', function() {
     if(chat.history[0] !== 'https://chat.google.com/') return; // Load CSP & CP only on Chat window. Delete this line if CSP doesn't work.
 
-    console.log("Initializing Custom Styling Parser..");
+    log('Initializing Google Chat Extender', 'warn');
     chat.insertCSS(coreCSS);
     chat.executeJavaScript(coreSystemParser);
+    log('Google Chat Extender Loaded!', 'ok')
 
     chat.executeJavaScript(`
       window.onload = function () {
@@ -116,7 +128,6 @@ app.on('browser-window-created', function(event, win) {
     `);
 
     findPlugins(chat);
-    console.log("Custom Styling Parser loaded!");
   });
 })
 
