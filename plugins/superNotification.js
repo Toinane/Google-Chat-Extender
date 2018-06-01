@@ -5,8 +5,8 @@ VERSION: 1.0
 AUTHOR: Toinane
 */
 
-const __name = /Gladys/gmi; /* Name of the user you want receive notifications */
-const __message = "GLADYS T'A ENVOYÉ UN MESSAGE !!!"; /* The message in notifications */
+const __name = 'Gladys'; /* Name of the user you want receive notifications */
+const __message = 'Tu as reçu un message de Gladys'; /* The message in notifications */
 const __delay = 5000; /* the delay between each notification */
 
 (function() {
@@ -15,7 +15,7 @@ const __delay = 5000; /* the delay between each notification */
   setInterval(function() {
     let items = document.querySelectorAll('.IL9EXe');
     for(let item of items) {
-      if(__name.exec(item.innerHTML)) {
+      if(regex.exec(item.innerHTML)) {
         if(/0&nbsp;notification/gmi.exec(item.innerHTML)) {
         } else {
           new Notification(__message);
