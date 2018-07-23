@@ -38,6 +38,7 @@
  background-color: #2BC554;
 }
 
+
 a, .Fv5sh{
 	color: #0099FF;
 }
@@ -79,16 +80,16 @@ a, .Fv5sh{
  opacity: 1;
 }
 
-.nk7hB {
+.I3EnF {
   position: relative;
-	bottom: 4px;
+	bottom: 7px;
   font-size: 1.3em;
 }
 
 .xzTN8b {
   position: absolute;
-  bottom: -3px;
-  left: 15px;
+  bottom: -18px;
+  left: -3px;
   background: none;
 }
 
@@ -244,4 +245,22 @@ a, .Fv5sh{
 
 .tuKyod:focus .LoYJxb, .tuKyod:active .LoYJxb, .teTAFe .PL5Wwe:focus{
 	background: none;
+}
+
+.c7fp5b {
+	overflow: visible;
+}
+.dKv0S .i5PBGe {
+	padding: 12px 15px; 
+}
+.dHI9xe.qs41qe.qs41qe .ojqkvd.ojqkvd.ojqkvd {
+	color: white;
+  fill: white;
+}
+.JRtysb:hover .snByac, .JRtysb:focus .snByac, .JRtysb:active .snByac, .JRtysb.qs41qe .snByac, .JRtysb.u3bW4e .snByac {
+	 fill: white;
+}
+.Bl2pUd {
+  padding-left: 18px;
+  padding-right: 10px;
 }
