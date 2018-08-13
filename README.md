@@ -5,7 +5,7 @@ Customs Themes for Google Chat
 
 - Download the GCEInstallator.sh
 - launch a terminal in the same directory of the file
-- run 'sh GCEInstallator.sh' command in terminal.
+- run 'sh GCEinstallator.sh' command in terminal.
 - Profit!
 
 you will have a new settings line in settings of Google Chat.
