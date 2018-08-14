@@ -1,6 +1,6 @@
 #! /bin/bash
 
-path="/Applications/iAdvize\ Chat.app"
+path="/Applications/Chat.app"
 previousGCE=false
 GCELink="https://raw.githubusercontent.com/Toinane/Google-Chat-Extender/master/googleChatExtender.js"
 GCEPluginLink="https://raw.githubusercontent.com/Toinane/Google-Chat-Extender/master/googleChatExtenderPlugin.js"

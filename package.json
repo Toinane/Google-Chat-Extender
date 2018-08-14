@@ -1,0 +1,18 @@
+{
+  "name": "gce",
+  "version": "1.0.0",
+  "description": "gce-cli for GCE",
+  "main": "gce-cli.js",
+  "repository": "git@github.com:Toinane/Google-Chat-Extender.git",
+  "author": "Toinane <toinane@crea-that.fr>",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": "./gce-cli.js",
+  "scripts": {
+    "start": "node gce-cli.js"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "prompts": "^0.1.14"
+  }
+}

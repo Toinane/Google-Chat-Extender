@@ -1,43 +1,36 @@
 /*
 NAME: Customoji
 DESCRIPTION: add custom emoji/gifs to google chat! drag and drop your image to publish it. Use only *.googleusercontent.com/* link! You can create an Album on Google Photo for this.
-VERSION: 0.2
+VERSION: 0.3
 AUTHOR: Toinane
 */
 
 const __images = ""; /* You can use ',' to separate links */
 
 (function() {
+  let menuOpened = false;
+
   function setCSS() {
     const css = `
       .X9KLPc { position: relative; }
+      @keyframes slidein { from {transform: translateY(100%);} to {transform: translateY(0);} }
+      @keyframes slideout { from {transform: translateY(0);} to {transform: translateY(100%);} }
       .customoji {
+        transform: translateY(100%);
+        animation: slideout 0.7s;
         background: white; border-top: 1px solid #dadce0;
         width: 100%; height: 100%;
         position: absolute; top: 0; left: 0;
         z-index: 100;
       }
+      .customoji.open { animation: slidein 0.7s; transform: translateY(0); }
       .customoji h1 {
         padding: 15px 2px;
         text-align: center; font-size: 1.1em;
       }
-      .customoji .close {
-        width: 16px; height: 16px;
-        position: absolute; top: 9px; right: 15px;
-        border-radius: 20px; padding: 8px;
-        cursor: pointer; transition: background 0.5s;
-      }
-      .customoji .close:hover { background: rgba(95,99,104,0.078); }
-      .customoji .close::before, .customoji .close::after {
-        content: ''; position: absolute;
-        height: 1px; width: 16px; top: 16px; left: 8px;
-        margin-top: -1px; background: #5f6368;
-      }
-      .customoji .close::before { transform: rotate(45deg); }
-      .customoji .close::after { transform: rotate(-45deg); }
       .customoji-list {
         display: flex; align-content: flex-start;
-        width: 100%; height: 100%;
+        width: 100%; height: calc(100% - 50px);
         flex-wrap: wrap; overflow-y: auto;
         justify-content: center;
       }
@@ -75,24 +68,22 @@ const __images = ""; /* You can use ',' to separate links */
 
     list.insertBefore(button, list.firstChild);
     document.querySelector('.customoji-button').addEventListener('click', showCustomoji);
-  }
 
-  function showCustomoji() {
     let menu = document.createElement('div');
     let sidebar = document.querySelector('.X9KLPc');
     menu.classList.add('customoji');
-    menu.innerHTML = `<h1>Customoji <span class="close"></span></h1><div class="customoji-list">${parseCustomoji()}</div>`;
+    menu.innerHTML = `<h1>Customoji</h1><div class="customoji-list">${parseCustomoji()}</div>`;
 
     sidebar.insertBefore(menu, sidebar.firstChild);
-    document.querySelector('.customoji .close').addEventListener('click', unshowCustomoji);
   }
 
-  function unshowCustomoji() {
+  function showCustomoji() {
     let menu = document.querySelector('.customoji');
-    menu.remove();
+    menu.classList.toggle('open')
   }
 
   function parseCustomoji() {
+    if(!__images.length) return '<p>no custom emoji</p>';
     let images = __images.split(',');
     
     return images.map(image => `<img src="${image.trim()}" alt="customoji" />`).join('');
