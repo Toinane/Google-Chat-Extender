@@ -12,6 +12,7 @@
     "start": "node gce-cli.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "minimist": "^1.2.0",
     "prompts": "^0.1.14"
   }

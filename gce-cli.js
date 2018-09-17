@@ -3,6 +3,7 @@
 const fs = require('fs');
 const argv = require('minimist')(process.argv.slice(2));
 const prompts = require('prompts');
+const axios = require('axios');
 
 const log = {
   blue: message => console.log('\x1b[34m', message, '\x1b[0m'),
@@ -14,6 +15,11 @@ const onCancel = prompt => {
   log.red('Aborted by user!');
   process.exit(0);
 }
+
+const GCE_LINK = 'https://raw.githubusercontent.com/Toinane/Google-Chat-Extender/master/googleChatExtender.js';
+const GCE_PLUGIN_LINK = 'https://raw.githubusercontent.com/Toinane/Google-Chat-Extender/master/googleChatExtenderPlugin.js';
+const THEME_PLUGIN_LINK = 'https://raw.githubusercontent.com/Toinane/Google-Chat-Extender/master/plugins/themeLoader.js';
+const PLUGIN_LIST = 'https://raw.githubusercontent.com/Toinane/Google-Chat-Extender/master/pluginList.json';
 
 let globalPath = '/Applications/iAdvize\ Chat.app';
 
@@ -33,6 +39,11 @@ Use "gce help" for complete list of options
 
 async function checkPath(path) {
   try {
+    fs.readdirSync('/Applications/' + path);
+    log.blue('Chat.app found!');
+    return '/Applications/' + path;
+  } catch(err) {}
+  try {
     log.blue(`Searching ${path}...`);
     fs.readdirSync(path + '/Contents/Resources/app');
     log.blue('Chat.app found!');
@@ -50,7 +61,7 @@ async function checkPath(path) {
 
 async function checkGCE(path) {
   try {
-    const dir = fs.readFileSync(path + '/googleChatExtender.js');
+    const dir = fs.readFileSync(path + '/Contents/Resources/app/googleChatExtender.js');
     response = await prompts({
       type: 'confirm',
       name: 'value',
@@ -59,7 +70,38 @@ async function checkGCE(path) {
     if(!response.value) onCancel();
 
     return true;
-  } catch(err) { log.red(err); return true; }
+  } catch(err) {
+    log.blue('GCE isn\'t already installed.');
+    return true;
+  }
+}
+
+async function installGCE(path) {
+  log.blue('Fetch GCE files..');
+  const gce = await axios.get(GCE_LINK);
+  const gcePlugin = await axios.get(GCE_PLUGIN_LINK);
+  const themePlugin = await axios.get(THEME_PLUGIN_LINK);
+  log.blue('Files fetched!');
+
+  try {
+    log.blue('Trying to update Chat\'s files..');
+    const main = fs.readFileSync(path + '/main.js');
+    fs.writeFileSync(path + '/main.js', 'require(__dirname + \'/googleChatExtender.js\');' + main);
+    log.blue('Chat\'s files updated!');
+  } catch(err) { throw new Error('It seem we cannot modify Chat\'s files.. Retry with sudo!'); }
+  try {
+    log.blue('Installing GCE files..');
+    fs.writeFileSync(path + '/googleChatExtender.js', gce.data);
+    fs.writeFileSync(path + '/googleChatExtenderPlugin.js', gcePlugin.data);
+    log.blue('GCE files installed!');
+    try {
+      log.blue('Installing ThemeLoader Plugin..');
+      fs.readdirSync(path + '/plugins');
+    } catch(err) { fs.mkdirSync(path + '/plugins'); }
+    fs.writeFileSync(path + '/plugins/themeLoader.js', themePlugin.data);
+    log.blue('ThemeLoader Plugin installed!');
+  }
+  catch(err) { throw new Error(err); }
 }
 
 async function info() {
@@ -77,8 +119,14 @@ async function install() {
 # GCE Installation #
 ####################
 `);
-  let path = await checkPath(globalPath);
-  await checkGCE(path);
+  try {
+    let path = await checkPath(globalPath);
+    await checkGCE(path);
+    await installGCE(path + '/Contents/Resources/app');
+    log.green('GCE is now installed! You can launch Google Chat.');
+  } catch(err) {
+    log.red(err);
+  }
 }
 
 async function add() {
@@ -99,6 +147,16 @@ async function remove() {
   let path = await checkPath(globalPath);
 }
 
+async function list() {
+  log.green(`
+##########################
+# GCE Plugins availables #
+##########################
+`);
+
+  const plugins = await axios.get(PLUGIN_LIST);
+}
+
 function help() {
   console.log(`
 gce controls the Google Chat Extender.
@@ -109,6 +167,7 @@ Commands:
   info [arguments]                        Show informations about your GCE's plugins
   add <plugin_name> [arguments]           Add a plugin for your GCE installation
   remove <plugin_name> [arguments]        Remove a plugin of your GCE installation
+  list                                    List all plugins availables
   help                                    Show this help
 
 Arguments:
@@ -128,6 +187,8 @@ switch(argv._[0]) {
   case 'add': add();
   break;
   case 'remove': remove();
+  break;
+  case 'list': list();
   break;
   default: help();
   break;

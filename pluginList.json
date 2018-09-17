@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    {
+      "name": "themeLoader",
+      "description": "Installed by default with GCE. This plugin allow you to add custom CSS theme to Chat."
+    },
+    {
+      "name": "superNotification",
+      "description": "This plugin allows you to have notifications as long as you have not read the message received from the person desired."
+    },
+    {
+      "name": "customoji",
+      "description": "Add custom emoji/gifs to google chat! drag and drop your image to publish it."
+    }
+  ]
+}
