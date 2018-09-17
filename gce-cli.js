@@ -16,12 +16,24 @@ const onCancel = prompt => {
   process.exit(0);
 }
 
+const deleteFolderRecursive = async path =>  {
+    if (fs.existsSync(path)) {
+        for (let entry of await fs.readdirSync(path)) {
+            const curPath = path + "/" + entry;
+            if ((fs.lstatSync(curPath)).isDirectory())
+                await deleteFolderRecursive(curPath);
+            else await fs.unlinkSync(curPath);
+        }
+        await fs.rmdirSync(path);
+    }
+};
+
 const GCE_LINK = 'https://raw.githubusercontent.com/Toinane/Google-Chat-Extender/master/googleChatExtender.js';
 const GCE_PLUGIN_LINK = 'https://raw.githubusercontent.com/Toinane/Google-Chat-Extender/master/googleChatExtenderPlugin.js';
 const THEME_PLUGIN_LINK = 'https://raw.githubusercontent.com/Toinane/Google-Chat-Extender/master/plugins/themeLoader.js';
 const PLUGIN_LIST = 'https://raw.githubusercontent.com/Toinane/Google-Chat-Extender/master/pluginList.json';
 
-let globalPath = '/Applications/iAdvize\ Chat.app';
+let globalPath = '/Applications/Chat.app';
 
 function getArguments() {
   if(argv.p === true) {
@@ -45,9 +57,9 @@ async function checkPath(path) {
   } catch(err) {}
   try {
     log.blue(`Searching ${path}...`);
-    fs.readdirSync(path + '/Contents/Resources/app');
+    fs.readdirSync(path);
     log.blue('Chat.app found!');
-    return path + '/Contents/Resources/app';
+    return path;
   } catch(err) {
     response = await prompts({
       type: 'text',
@@ -69,12 +81,14 @@ async function checkGCE(path) {
 }
 
 async function installGCE(path) {
+  log.blue('Fetch GCE files..');
+  const gce = await axios.get(GCE_LINK);
+  const gcePlugin = await axios.get(GCE_PLUGIN_LINK);
+  const themePlugin = await axios.get(THEME_PLUGIN_LINK);
+  log.blue('Files fetched!');
+
   try {
-    log.blue('Fetch GCE files..');
-    const gce = await axios.get(GCE_LINK);
-    const gcePlugin = await axios.get(GCE_PLUGIN_LINK);
-    const themePlugin = await axios.get(THEME_PLUGIN_LINK);
-    log.blue('Files fetched!');
+    fs.chmodSync(path, '777');
     log.blue('Trying to update Chat\'s files..');
     const main = fs.readFileSync(path + '/main.js');
     fs.writeFileSync(path + '/main.js', 'require(__dirname + \'/googleChatExtender.js\');' + main);
@@ -106,7 +120,7 @@ async function uninstallGCE(path) {
     log.blue('Unistall GCE files..');
     fs.unlinkSync(path + '/googleChatExtender.js');
     fs.unlinkSync(path + '/googleChatExtenderPlugin.js');
-    fs.unlinkSync(path + '/plugins/themeLoader.js');
+    await deleteFolderRecursive(path + '/plugins');
   }
   catch(err) { throw new Error(err); }
 }
@@ -136,10 +150,13 @@ try {
   let check = await checkGCE(path);
   if(!check) { return log.red('GCE is not installed. You can install it with "gce install".'); }
   
+  log.green('Google Chat path: ' + path);
+  log.blue('Plugins installed:')
+  for (let entry of await fs.readdirSync(path + '/Contents/Resources/app/plugins')) {
+    log.green('- ' + entry);
+  }
 }
-catch(err) {
-  log.red(err);
-}
+catch(err) { log.red(err); }
 }
 
 async function install() {
@@ -203,16 +220,27 @@ async function update() {
 }
 
 async function add() {
+  const url = 'https://raw.githubusercontent.com/Toinane/Google-Chat-Extender/master/plugins/';
+
   log.green(`
 #####################
 # GCE Plugin Adding #
 #####################
 `);
   try {
+    if(!argv._[1]) { return log.red('You have to write the name of the plugin you want install'); }
+
+    let name = argv._[1];
     let path = await checkPath(globalPath);
     let check = await checkGCE(path);
     if(!check) { return log.red('GCE is not installed. Install it before with "gce install"'); }
 
+    try {
+      const plugin = await axios.get(url + name + '.js');
+      fs.writeFileSync(path + `/Contents/Resources/app/plugins/${name}.js`, plugin.data);
+      log.green(name + ' is now installed on Google Chat!');
+    }
+    catch(err) { return log.red('It seem this plugin doesn\'t exist.. You can see the plugin list with "gce list"'); }
   }
   catch(err) {
     log.red(err);
@@ -226,10 +254,21 @@ async function remove() {
 #######################
 `);
   try {
+    if(!argv._[1]) { return log.red('You have to write the name of the plugin you want install'); }
+
+    let name = argv._[1];
     let path = await checkPath(globalPath);
     let check = await checkGCE(path);
     if(!check) { return log.red('GCE is not installed. Install it before with "gce install"'); }
-    
+    try {
+      fs.unlinkSync(path + `/Contents/Resources/app/plugins/${name}.js`);
+      log.green(name + ' is now removed from Google Chat!');
+    }
+    catch(err) {
+      log.red(err)
+      return log.red('It seem this plugin is not installed!');
+      
+    }
   }
   catch(err) {
     log.red(err);
