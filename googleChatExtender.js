@@ -1,7 +1,7 @@
 /*
 NAME: Google Chat Extender
 DESCRIPTION: GCE allow you to customize your Google Chat app with theme, plugins and tweaks.
-VERSION: 0.5
+VERSION: 0.6
 AUTHOR: Toinane
 */
 
@@ -114,7 +114,7 @@ app.on('browser-window-created', function(event, win) {
 
   //web.openDevTools();
   web.on('dom-ready', () => {
-    if(web.history[0] !== 'https://chat.google.com/') return; // Load GCE only on Chat window. Delete this line if GCE doesn't work.
+    if(!web.history[0].includes('https://chat.google.com/')) return; // Load GCE only on Chat window. Delete this line if GCE doesn't work.
     launchPlugins(web);
   });
   web.on('will-navigate', () => {

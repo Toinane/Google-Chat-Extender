@@ -62,28 +62,19 @@ async function checkPath(path) {
 async function checkGCE(path) {
   try {
     const dir = fs.readFileSync(path + '/Contents/Resources/app/googleChatExtender.js');
-    response = await prompts({
-      type: 'confirm',
-      name: 'value',
-      message: 'it seems GCE is already installed. Should overwrite it?'
-    }, {onCancel: onCancel});
-    if(!response.value) onCancel();
-
     return true;
   } catch(err) {
-    log.blue('GCE isn\'t already installed.');
-    return true;
+    return false;
   }
 }
 
 async function installGCE(path) {
-  log.blue('Fetch GCE files..');
-  const gce = await axios.get(GCE_LINK);
-  const gcePlugin = await axios.get(GCE_PLUGIN_LINK);
-  const themePlugin = await axios.get(THEME_PLUGIN_LINK);
-  log.blue('Files fetched!');
-
   try {
+    log.blue('Fetch GCE files..');
+    const gce = await axios.get(GCE_LINK);
+    const gcePlugin = await axios.get(GCE_PLUGIN_LINK);
+    const themePlugin = await axios.get(THEME_PLUGIN_LINK);
+    log.blue('Files fetched!');
     log.blue('Trying to update Chat\'s files..');
     const main = fs.readFileSync(path + '/main.js');
     fs.writeFileSync(path + '/main.js', 'require(__dirname + \'/googleChatExtender.js\');' + main);
@@ -104,13 +95,51 @@ async function installGCE(path) {
   catch(err) { throw new Error(err); }
 }
 
+async function uninstallGCE(path) {
+  try {
+    log.blue('Trying to restore Chat\'s files..');
+    const main = fs.readFileSync(path + '/main.js');
+    fs.writeFileSync(path + '/main.js', main.slice(46));
+    log.blue('Chat\'s files restored!');
+  } catch(err) { log.red(err); throw new Error('It seem we cannot modify Chat\'s files.. Retry with sudo!');}
+  try {
+    log.blue('Unistall GCE files..');
+    fs.unlinkSync(path + '/googleChatExtender.js');
+    fs.unlinkSync(path + '/googleChatExtenderPlugin.js');
+    fs.unlinkSync(path + '/plugins/themeLoader.js');
+  }
+  catch(err) { throw new Error(err); }
+}
+
+async function updateGCE(path) {
+  try {
+    log.blue('Fetch GCE files..');
+    const gce = await axios.get(GCE_LINK);
+    const gcePlugin = await axios.get(GCE_PLUGIN_LINK);
+    log.blue('Files fetched!');
+    log.blue('Installing GCE files..');
+    fs.writeFileSync(path + '/googleChatExtender.js', gce.data);
+    fs.writeFileSync(path + '/googleChatExtenderPlugin.js', gcePlugin.data);
+    log.blue('GCE files installed!');
+  }
+  catch(err) { throw new Error(err); }
+}
+
 async function info() {
   log.green(`
 ###################
 # GCE Information #
 ###################
 `);
+try {
   let path = await checkPath(globalPath);
+  let check = await checkGCE(path);
+  if(!check) { return log.red('GCE is not installed. You can install it with "gce install".'); }
+  
+}
+catch(err) {
+  log.red(err);
+}
 }
 
 async function install() {
@@ -121,9 +150,53 @@ async function install() {
 `);
   try {
     let path = await checkPath(globalPath);
-    await checkGCE(path);
+    let check = await checkGCE(path);
+    if(check) {
+      response = await prompts({
+        type: 'confirm',
+        name: 'value',
+        message: 'it seems GCE is already installed. Should overwrite it?'
+      }, {onCancel: onCancel});
+      if(!response.value) onCancel();  
+    } else {
+      log.blue('GCE isn\'t already installed.');
+    }
     await installGCE(path + '/Contents/Resources/app');
     log.green('GCE is now installed! You can launch Google Chat.');
+  } catch(err) {
+    log.red(err);
+  }
+}
+
+async function uninstall() {
+  log.green(`
+######################
+# GCE Uninstallation #
+######################
+`);
+  try {
+    let path = await checkPath(globalPath);
+    let check = await checkGCE(path);
+    if(!check) { return log.green('GCE is not installed :)'); }
+    await uninstallGCE(path + '/Contents/Resources/app');
+    log.green('GCE is now removed from Google Chat!');
+  } catch(err) {
+    log.red(err);
+  }
+}
+
+async function update() {
+  log.green(`
+################
+# GCE Updating #
+################
+`);
+  try {
+    let path = await checkPath(globalPath);
+    let check = await checkGCE(path);
+    if(!check) { return log.green('GCE is not installed :)'); }
+    await updateGCE(path + '/Contents/Resources/app');
+    log.green('GCE is now updated to latest version! You can launch Google Chat.');
   } catch(err) {
     log.red(err);
   }
@@ -135,7 +208,15 @@ async function add() {
 # GCE Plugin Adding #
 #####################
 `);
-  let path = await checkPath(globalPath);
+  try {
+    let path = await checkPath(globalPath);
+    let check = await checkGCE(path);
+    if(!check) { return log.red('GCE is not installed. Install it before with "gce install"'); }
+
+  }
+  catch(err) {
+    log.red(err);
+  }
 }
 
 async function remove() {
@@ -144,7 +225,15 @@ async function remove() {
 # GCE Plugin Removing #
 #######################
 `);
-  let path = await checkPath(globalPath);
+  try {
+    let path = await checkPath(globalPath);
+    let check = await checkGCE(path);
+    if(!check) { return log.red('GCE is not installed. Install it before with "gce install"'); }
+    
+  }
+  catch(err) {
+    log.red(err);
+  }
 }
 
 async function list() {
@@ -154,7 +243,17 @@ async function list() {
 ##########################
 `);
 
-  const plugins = await axios.get(PLUGIN_LIST);
+  try {
+    const plugins = await axios.get(PLUGIN_LIST);
+    plugins.data.plugins.map(plugin => {
+      log.green('- ' + plugin.name);
+      log.blue(plugin.description);
+      log.blue('');
+    });
+  }
+  catch(err) {
+    log.red('Cannot get plugin list. Are you connected to internet?');
+  }
 }
 
 function help() {
@@ -164,6 +263,8 @@ Find more information at https://github.com/Toinane/Google-Chat-Extender.
 
 Commands:
   install [arguments]                     Launch the installation of GCE
+  uninstall [arguments]                   Launch the uninstallation of GCE
+  update [arguments]                      Update to latest version of GCE
   info [arguments]                        Show informations about your GCE's plugins
   add <plugin_name> [arguments]           Add a plugin for your GCE installation
   remove <plugin_name> [arguments]        Remove a plugin of your GCE installation
@@ -180,16 +281,12 @@ Arguments:
 getArguments();
 
 switch(argv._[0]) {
-  case 'info': info();
-  break;
-  case 'install': install();
-  break;
-  case 'add': add();
-  break;
-  case 'remove': remove();
-  break;
-  case 'list': list();
-  break;
-  default: help();
-  break;
+  case 'info': info(); break;
+  case 'install': install(); break;
+  case 'uninstall': uninstall(); break;
+  case 'update': update(); break;
+  case 'add': add(); break;
+  case 'remove': remove(); break;
+  case 'list': list(); break;
+  default: help(); break;
 }
