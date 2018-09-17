@@ -1,12 +1,42 @@
-# themes-google-chat
-Customs Themes for Google Chat
+# Google Chat Extender
 
-### For MacOS :
+This plugin allow you to custom your Google Chat app!
+New custom themes and plugins!
 
-- Download the GCEInstallator.sh
-- launch a terminal in the same directory of the file
-- run 'sh GCEinstallator.sh' command in terminal.
-- Profit!
+## How to find what I want here?
 
-you will have a new settings line in settings of Google Chat.
-You can add a custom CSS and apply it!
+It is simple!
+
+- Plugins
+You can find all plugins in the plugins folder.
+
+- Theme
+you can find all themes in the themes folder.
+
+- Plugins for Navigator version
+you can find all plugins in the userscripts folder.
+
+## How to install GCE for Google Chat app?
+
+More simple!
+Open your command line and write:
+```terminal
+npm install -g gce
+```
+
+In order to install GCE, write this:
+```terminal
+gce install
+```
+
+You want to add a plugin? Write this:
+```terminal
+gce add <plugin_name>
+```
+
+You can find more commands with this command:
+```terminal
+gce help
+```
+
+You want to share your custom theme or plugin? Open new PR :D

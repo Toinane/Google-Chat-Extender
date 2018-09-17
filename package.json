@@ -1,6 +1,6 @@
 {
   "name": "gce",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "gce-cli for GCE",
   "main": "gce-cli.js",
   "repository": "git@github.com:Toinane/Google-Chat-Extender.git",
