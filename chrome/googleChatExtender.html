@@ -18,19 +18,19 @@
       }
       body {
         font-family: Hind, sans-serif;
-        background: #F4F4F4;
+        background: #F2F2F2;
         width: 450px;
         height: 500px;
         position: relative;
       }
-      header {
+      #header {
         background: white;
         color: #208196;
         height: 26px;
         display: flex;
         align-items: center;
       }
-        header img {
+        #header img {
           position: relative;
           top: 6px;
           width: 32px; height: 32px;
@@ -39,7 +39,7 @@
           background: white;
           border-radius: 50px;
         }
-        header p {
+        #header p {
           margin-left: 10px;
         }
         #version {
@@ -47,7 +47,58 @@
           right: 10px;
           color: #999;
         }
-
+        #plugins, #marketplace {
+          opacity: 0;
+          padding-top: 25px;
+          position: absolute;
+          z-index: -1;
+          transition: 0.6s;
+          height: 399px;
+          overflow-y: auto;
+        }
+        #plugins {
+          transform: translateX(-140px);
+        }
+        #marketplace {
+          transform: translateX(140px);
+        }
+        #plugins.active, #marketplace.active {
+          opacity: 1;
+          transform: translateX(0);
+          z-index: 100;
+        }
+        h1 {
+          font-family: Alegreya, sans-serif;
+          border-left: 5px solid #333;
+          color: #444;
+          padding-left: 10px;
+          margin-left: 10px;
+        }
+        .plugin {
+          width: 430px;
+          box-sizing: border-box;
+          margin: 10px;
+          border: 1px solid #E1E1E1;
+          border-radius: 5px;
+          background: #FFF;
+        }
+          .plugin header {
+            padding: 7px 15px;
+            background: #F8F8F8;
+          }
+            .plugin h2 {
+              font-size: 1.2em;
+              color: #333;
+            }
+              .plugin h2 span {
+                margin-left: 5px;
+                font-size: 0.8em;
+                color: #888;
+              }
+            .plugin p {
+              padding: 4px 15px;
+              color: #777;
+            }
         footer {
           position: absolute;
           bottom: 0; left: 0;
@@ -75,14 +126,65 @@
             border-top: 4px solid #208196;
             color: #208196;
           }
+          footer p:first-child {
+            border-right: 1px solid #EEE;
+          }
     </style>
   </head>
   <body>
-    <header>
+    <header id="header">
       <img src="icon128.png" alt="Logo" />
       <p>Google Chat Extender</p>
       <p id="version">v1.0</p>
     </header>
+    <section id="plugins" class="active">
+      <h1>Plugins</h1>
+      <section class="plugin">
+        <header>
+          <h2>themeLoader - v0.3 <span>by Toinane</span></h2>
+        </header>
+        <p>This plugin allows you to have CSS Theme on Google Chat.</p>
+        <h3>Configuration</h3>
+      </section>
+      <section class="plugin">
+        <header>
+          <h2>themeLoader - v0.3 <span>by Toinane</span></h2>
+        </header>
+        <p>This plugin allows you to have CSS Theme on Google Chat.</p>
+        <h3>Configuration</h3>
+      </section>
+      <section class="plugin">
+        <header>
+          <h2>themeLoader - v0.3 <span>by Toinane</span></h2>
+        </header>
+        <p>This plugin allows you to have CSS Theme on Google Chat.</p>
+        <h3>Configuration</h3>
+      </section>
+      <section class="plugin">
+        <header>
+          <h2>themeLoader - v0.3 <span>by Toinane</span></h2>
+        </header>
+        <p>This plugin allows you to have CSS Theme on Google Chat.</p>
+        <h3>Configuration</h3>
+      </section>
+      <section class="plugin">
+        <header>
+          <h2>themeLoader - v0.3 <span>by Toinane</span></h2>
+        </header>
+        <p>This plugin allows you to have CSS Theme on Google Chat.</p>
+        <h3>Configuration</h3>
+      </section>
+    </section>
+    <section id="marketplace">
+        <h1>MarketPlace</h1>
+        <section class="plugin">
+          <header>
+            <h2>themeLoader - v0.3 <span>by Toinane</span></h2>
+          </header>
+          <p>This plugin allows you to have CSS Theme on Google Chat.</p>
+          <h3>Configuration</h3>
+        </section>
+    </section>
     <footer>
       <p id="plugin" class="active">Plugins</p>
       <p id="market">MarketPlace</p>
