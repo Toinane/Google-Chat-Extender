@@ -28,6 +28,10 @@
   top: 15px; left: 23px;
 }
 
+.Nj9fLc, .dUJbze, .vMbxHf {
+    fill: var(--sidebar_color_secondary);
+}
+
 .o50UJf{
   fill: #0099FF;
 }
@@ -43,7 +47,7 @@ a, .Fv5sh{
   color: #0099FF;
 }
 
-.ZlQIRd, .ZGAbn, .i6q1kd, .otWEZc, .TMWNic {
+.ZlQIRd, .ZGAbn, .i6q1kd, .otWEZc, .TMWNic, .DQy0Rb {
   fill: #2BC554;
 }
 .m3sLHf, .pihjkd, .RnpT2b:focus .SfqTBc, .SfqTBc:hover, .pyNvz, .fWwrkf, .AajRzd {
@@ -72,6 +76,10 @@ a, .Fv5sh{
   background: var(--sidebar_background);
   color: var(--sidebar_color_primary);
   width: var(--sidebar_width);
+}
+
+.Riuhhf {
+    height: 110px;
 }
 
 /* Chat Logo */
@@ -146,7 +154,7 @@ a, .Fv5sh{
   color: var(--sidebar_color_secondary); 
 }
 
-.yoV6yd .ZTmjQb {
+.yoV6yd .ZTmjQb, .erYYcb .t5F5nf {
 	color: var(--sidebar_color_primary) !important; 
 }
 
@@ -164,14 +172,14 @@ a, .Fv5sh{
 }
 
 .X9KLPc .d6pS5 {
-	position: absolute;
+  position: absolute;
   z-index: 10000;
   top: -47px;
-  right: 16px;
+  right: 10px;
 }
 
 .X9KLPc .d6pS5, .X9KLPc .W2x1cc, .X9KLPc .O0WRkf {
-	width: 36px;
+  width: 36px;
   height: 36px;
   min-height: 0;
   min-width: 0;
@@ -200,10 +208,10 @@ a, .Fv5sh{
 }
 
 .QeRfYe {
-  fill: var(--sidebar_color_secondary); 
+  fill: var(--sidebar_color_secondary) !important; 
 }
-.QeRfYe:hover {
-  fill: var(--sidebar_color_primary);
+.JRtysb:hover .snByac, .JRtysb:focus .snByac, .JRtysb:active .snByac, .JRtysb.qs41qe .snByac, .JRtysb.u3bW4e .snByac {
+  fill: var(--sidebar_color_primary) !important;
 }
 
 
@@ -261,4 +269,35 @@ a, .Fv5sh{
 .Bl2pUd {
   padding-left: 18px;
   padding-right: 10px;
+}
+
+.aYKDpe {
+    position: absolute;
+    top: 55px;
+    left: 12px;
+}
+.aYKDpe .RASpke {
+    border: none;
+}
+.aYKDpe .RASpke:hover {
+    background: var(--sidebar_background_hover);
+}
+.RASpke .I3EnF {
+    bottom: 0;
+}
+
+.vsxzuf {
+    fill: var(--sidebar_color_secondary) !important;
+}
+
+.I3EnF .gWTIDe, .vsxzuf:hover, .vsxzuf:focus {
+    color: var(--sidebar_color_primary);
+    fill: var(--sidebar_color_primary) !important;
+}
+.vsxzuf {
+    position: relative;
+    right: 10px;
+}
+.JRtysb:hover .snByac, .JRtysb:focus .snByac, .JRtysb:active .snByac, .JRtysb.qs41qe .snByac, .JRtysb.u3bW4e .snByac {
+    fill: black !important;
 }

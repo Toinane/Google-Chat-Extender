@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Google Chat Extender</title>
+    <style>
+      @font-face {
+        font-family: Alegreya;
+        src: url("./AlegreyaSans-Light.ttf");
+      }
+      @font-face {
+        font-family: Hind;
+        src: url("./Hind-Regular.ttf");
+      }
+
+      * {
+        margin: 0; padding: 0; outline: 0;
+      }
+      body {
+        font-family: Hind, sans-serif;
+        background: #F4F4F4;
+        width: 450px;
+        height: 500px;
+        position: relative;
+      }
+      header {
+        background: white;
+        color: #208196;
+        height: 26px;
+        display: flex;
+        align-items: center;
+      }
+        header img {
+          position: relative;
+          top: 6px;
+          width: 32px; height: 32px;
+          padding: 5px;
+          margin-left: 10px;
+          background: white;
+          border-radius: 50px;
+        }
+        header p {
+          margin-left: 10px;
+        }
+        #version {
+          position: absolute;
+          right: 10px;
+          color: #999;
+        }
+
+        footer {
+          position: absolute;
+          bottom: 0; left: 0;
+          width: 100%;
+          height: 50px;
+          background: white;
+          display: flex;
+        }
+          footer p {
+            font-family: Alegreya, sans-serif;
+            width: 50%;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.5em;
+            color: #AAA;
+            transition: 0.3s;
+            box-sizing: border-box;
+            border-top: 4px solid white;
+          }
+          footer p:not(.active):hover {
+            cursor: pointer;
+            color: #777;
+          }
+          footer p.active {
+            border-top: 4px solid #208196;
+            color: #208196;
+          }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="icon128.png" alt="Logo" />
+      <p>Google Chat Extender</p>
+      <p id="version">v1.0</p>
+    </header>
+    <footer>
+      <p id="plugin" class="active">Plugins</p>
+      <p id="market">MarketPlace</p>
+    </footer>
+    <script src="googleChatExtender.js"></script>
+  </body>
+</html>

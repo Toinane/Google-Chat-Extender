@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "Google Chat Extender",
+  "description": "This plugin allow you to custom your Google Chat!",
+  "version": "1.0.0",
+  "author": "Toinane",
+  "icons": {
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "js": ["googleChatExtenderApply.js"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "32": "icon32.png"
+    },
+    "default_title": "Google Chat Extender",
+    "default_popup": "googleChatExtender.html"
+  },
+  "background": {
+    "scripts": [
+      "googleChatExtender.js"
+    ]
+  }
+}
