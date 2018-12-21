@@ -170,7 +170,10 @@ function launchPlugins() {
   plugins.forEach(plugin => {
     if(!plugin.enabled) return;
     try {
-      eval(plugin.content);
+      const el = document.createElement('script');
+      el.innerHTML = plugin.content;
+      el.setAttribute('nonce', window.IJ_values[8]);
+      document.head.appendChild(el);
       log(plugin.name + ' is loaded!', 'ok');
     }
     catch (err) {
