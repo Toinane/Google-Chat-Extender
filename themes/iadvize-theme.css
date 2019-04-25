@@ -19,6 +19,31 @@
 #XMLID_53_-Clipped{
   display: none; 
 }
+
+.rFrNMe {
+  position: fixed;
+  top: 46px;
+  left: 10px;
+  z-index: 10000;
+  width: 300px;
+  background: #303E4C;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 2px 6px 2px rgba(60,64,67,0.15);
+}
+
+.AQTWId {
+  position: fixed;
+  top: 94px;
+  left: 10px;
+  z-index: 10000;
+  width: 300px;
+  max-height: 60vh;
+  background: #303E4C;
+  overflow-y: scroll;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 2px 6px 2px rgba(60,64,67,0.15);
+}
+
 .SZ9zpc:before{
   content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 540"><defs><style>.cls-1{fill:#1bc74e;}</style></defs><g><g><path class="cls-1" d="M289.35,109.64c-87.68,25-156.22,94.58-180.31,182.51-25.61,93.47-2.24,182.28,50.1,246.57L114.63,615a15.55,15.55,0,0,0,13.43,23.39h193V438c0-25.67,20-45.63,45.63-45.63s45.63,20,45.63,45.63V634.74c128.31-20.91,226.27-132.17,226.27-266.38C638.61,193.5,472.4,57.47,289.35,109.64Zm78.3,235.18c-29.47,0-55.14-24.72-55.14-55.14s25.67-57,55.14-57c31.37,0,57,26.62,57,57S399,344.81,367.66,344.81Z" transform="translate(-98.61 -98.36)"/></g></g></svg>');
 	display:block;
