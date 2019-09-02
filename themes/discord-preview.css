@@ -1,0 +1,449 @@
+/*******************/
+/* GOOGLE CHAT CSS */
+/*******************/
+
+/*************************/
+/*  HEADER CSS           */
+/*************************/
+
+/* Header block */
+.OVbIKc, .DWzK6d {
+  height: 45px;
+}
+
+/* Header Sidebar's part */
+.Riuhhf {
+  margin: 0;
+  background: #2F3136;
+  border-bottom: 1px solid #222427;
+  border-right: 0;
+  height: 45px;
+  width: 280px;
+}
+
+/* Header Content's part */
+.QTQg5e {
+  /*background: #36393F;
+  border-bottom: 1px solid #222427;*/
+  height: 45px;
+}
+
+/* Juste le logo Chat en svg */
+#XMLID_53_-Clipped{
+  display: none;
+}
+
+/* Juste le mot "Chat" du logo en svg */
+#XMLID_8_-Clipped {
+  display: none;
+}
+
+/* Menu du channel */
+.JPdR6b {
+  /*background: #282B30;*/
+}
+
+/* Texte dans le menu du channel */
+.jO7h3c {
+  /*color: #A9AAAC;*/
+}
+
+/* Couleur des icônes dans le menu du channel */
+.o50UJf{
+  /*fill: #646E79;*/
+}
+
+/* Nom du channel */
+.nk7hB {
+  /*color: #fff;*/
+}
+
+/* Nombre de personne dans le channel */
+.sNyyib .x1jjEb {
+  /*background: none;
+  color: white;*/
+}
+
+/* Message "Laisser un avis" */
+.Jrbdv {
+
+}
+
+
+/**************************/
+/*  SIDEBAR CSS           */
+/**************************/
+
+/* Sidebar Block */
+.X9KLPc {
+  background: #2B2C31;
+  width: 280px;
+}
+
+.hqlnxe {
+  height: 0;
+}
+
+/* Search Button hovered */
+.GbZFNe:hover, .GbZFNe:focus {
+
+}
+
+/* Rond online devant la personne connecté dans la sidebar */
+.Qgwczb {
+
+}
+
+/* Name of User/Channel/Bot */
+.X9KLPc .n5yyEc .t5F5nf.NXfF8b {
+    color: #B1B4B9;
+}
+
+/* Color of text hovered in items */
+.X9KLPc .PL5Wwe:hover .t5F5nf.NXfF8b, .wAR34c{
+
+}
+
+/* Separation & title */
+.aOHsTc {
+
+}
+
+/* item hovered */
+.teTAFe .PL5Wwe:focus, .teTAFe .PL5Wwe:hover:not(.tuKyod), .teTAFe .tuKyod:hover .LoYJxb {
+
+}
+
+/* item active */
+.n5yyEc .teTAFe .PL5Wwe.KKjvXb:not(.tuKyod), .n5yyEc .teTAFe .PL5Wwe.qs41qe:not(.tuKyod), .nz9RLc {
+  background: #42464C;
+}
+
+/* Channel Name with mentions not read */
+.X9KLPc .n5yyEc .PL5Wwe.H7du2 .t5F5nf, .X9KLPc .n5yyEc .PL5Wwe.KKjvXb .t5F5nf, .X9KLPc .n5yyEc .PL5Wwe.KKjvXb .sFuxxd, .GSEpfc .t5F5nf, .IliFSc {
+  color: white;
+}
+
+/* Channel date */
+.PL5Wwe.H7du2 .sFuxxd, .wR3Nid {
+
+}
+
+/* Channel active Name */
+.n5yyEc .IL9EXe.PL5Wwe.qs41qe .t5F5nf {
+   color: white;
+}
+
+/* Channel active date */
+.PL5Wwe.qs41qe .sFuxxd {
+
+}
+
+/* Infobulle du nombre de mention après le nom d'une personne/channel dans la sidebar */
+.eM5l9e {
+
+}
+
+/* 3 dots icon when you hover a channel */
+.QeRfYe {
+
+}
+
+/* 3 dots icon hovered */
+.QeRfYe:hover {
+
+}
+
+/* Sidebar content */
+.yxIv1d {
+  margin-bottom: 45px;
+  background: #2F3136;
+}
+
+
+/* user avatar */
+.gb_Ea.gb_f {
+  position: fixed;
+  bottom: 8px;
+  left: 0;
+  z-index: -1;
+}
+
+.gb_z {
+  top: -383px;
+  left: 10px;
+  width: 330px;
+}
+
+.gb_mb .gb_Ra, .gb_mb .gb_Sa {
+  top: -8px;
+  transform: rotate(180deg);
+}
+
+.gb_mb .gb_Ra {
+  border-bottom-color: #FAFAFA;
+}
+
+/* User Online Indicator */
+.RASpke {
+  position: fixed;
+  bottom: 8px;
+  left: 47px;
+  z-index: 1000;
+  width: 23px;
+  border: none;
+  padding: 0 4px;
+}
+
+.Qgwczb {
+  margin-right: 3px;
+  background-color: #49B482;
+  min-height: 11px;
+  min-width: 11px;
+}
+
+.dUJbze {
+  height: 10px;
+  width: 10px;
+  fill: #D12392;
+}
+
+/* Settings */
+.JRtysb.Nj8aCb.Nj8aCb {
+  position: fixed;
+  bottom: 1px;
+  left: 190px;
+  fill: #AAABAD;
+}
+.JRtysb:hover.Nj8aCb, .JRtysb:hover .snByac {
+  fill: white;
+}
+
+.JRtysb .V3Pk2 {
+  width: 22px;
+  height: 19px;
+}
+
+/* Google Applications */
+.gb_Fc {
+  position: fixed;
+  bottom: 8px;
+  left: 240px;
+}
+#gb#gb a.gb_x {
+  color: #AAABAD;
+  background-position: -35px -936px;
+}
+
+/* Send comment */
+.AnSlcc, .ZLchue {
+  width: 50px;
+}
+.TaudIc {
+  position: fixed;
+  top: 1px;
+  right: 1px;
+}
+
+/* Search button */
+.YJYRV {
+  float: right;
+  top: 1px;
+  right: 50px;
+}
+
+/* NOT READ */
+.R1dyib {
+  width: 270px;
+  height: 20px;
+  border-radius: 5px;
+  background: #6C6F76;
+  display: flex;
+  align-items: center;
+}
+
+.qnE4dc .GfYBMd, .RW5Kg {
+  color: white;
+  fill: white;
+  font-weight: normal;
+  font-size: 0.93em;
+}
+
+/* Really important */
+.sWSypd .R1dyib {
+  background: #6C6F76;
+}
+
+/* bottom */
+.QsklV {
+  bottom: 60px;
+}
+
+
+/*****************************************/
+/*  Search Menu in Sidebar CSS           */
+/*****************************************/
+
+/* Search Block */
+.hqlnxe {
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  right: 380px;
+  width: 24px;
+  height: 24px;
+  background: red;
+}
+
+.d6pS5:not(.iWO5td), .d6pS5:not(.gUxhRe) .uDjj8c {
+  box-shadow: none;
+}
+.GbZFNe .CwaK9 {
+  display: none;
+}
+
+.HLTcjb {
+  display: none;
+}
+
+.d6pS5:before {
+  content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><polygon points="0 0 24 0 24 24 0 24"></polygon><path class="iconForeground-3y9f0B" fill="currentColor" d="M19 19L23 19 23 16.5C23 14.17 18.33 13 16 13 15.71 13 15.38 13.02 15.03 13.05 15.2979181 13.2440097 15.5471657 13.4534892 15.7720754 13.6791778 17.5922944 14.6769857 19 16.1183086 19 18L19 19zM14.3335577 10.4967128C14.8098529 10.8147627 15.3828086 11 16 11 17.66 11 18.99 9.66 18.99 8 18.99 6.34 17.66 5 16 5 15.3827845 5 14.8098082 5.18525173 14.3335019 5.5033244 14.7574619 6.23791814 15 7.09053797 15 8.00006693 15 8.90955601 14.7574832 9.76214095 14.3335577 10.4967128zM9 12C6.79 12 5 10.21 5 8 5 5.79 6.79 4 9 4 11.21 4 13 5.79 13 8 13 10.21 11.21 12 9 12zM9 14C11.67 14 17 15.34 17 18L17 20 1 20 1 18C1 15.34 6.33 14 9 14z"></path></g></svg>');
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  fill: #AFB0B2;
+}
+
+.d6pS5{
+  width: 24px;
+  height: 24px;
+}
+
+.d6pS5.iW05td .ffyVOd, .uDjj8c {
+  background: none;
+}
+
+.rFrNMe {
+  position: fixed;
+  top: 46px;
+  right: 304px;
+  z-index: 10000;
+  width: 300px;
+  background: white;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 2px 6px 2px rgba(60,64,67,0.15);
+}
+
+.AQTWId {
+  position: fixed;
+  top: 94px;
+  right: 300px;
+  z-index: 10000;
+  width: 300px;
+  max-height: 60vh;
+  background: white;
+  overflow-y: scroll;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.30), 0 2px 6px 2px rgba(60,64,67,0.15);
+}
+
+/* Search Hidden Block */
+.d6pS5.i6oIBe .W2x1cc {
+}
+
+/* "Close" icon */
+.w6RqOb .D3DXDc {
+
+}
+
+/* "Close" icon Block */
+.w6RqOb {
+
+}
+
+/* Close icon hovered */
+.w6RqOb:hover .FNTJIe{
+
+}
+
+/* Search box */
+.tOToeb {
+}
+
+/* Search text box */
+.Uk0Bfe .zHQkBf {
+
+}
+
+
+/**************************/
+/*  CONTENT CSS           */
+/**************************/
+
+/* Content Block */
+.DLc2vb {
+
+}
+
+/* Head of Content */
+.mTRrYc {
+
+}
+
+/* Liens */
+a {
+
+}
+
+/* Text "Non lus" */
+.Fv5sh{
+
+}
+
+/* icônes d'information hors des messages */
+.ZlQIRd, .ZGAbn {
+
+}
+
+/* Text "Répondre" */
+.m3sLHf {
+
+}
+
+/* Bouton "Ajouter" tout en haut d'un channel */
+.pihjkd {
+
+}
+
+/* Mention "@" dans un message */
+.fWwrkf {
+
+}
+
+/* "Nouveau" in new message */
+.nxYf0b {
+
+}
+
+/* Color of "Nouveau" in new message */
+.c9Nhzb {
+
+}
+
+/* Messages hovered */
+.cmEq8b:hover, .cmEq8b:hover .jGyvbd, .cmEq8b:hover .oGsu4, .cmEq8b:hover .AflJR, .nF6pT.FwR7Pc .Hj5Fxb, .hu21Y:hover {
+
+}
+
+/* Message "Nouvelle conversation" apparaissant lorsqu'on écrit un nouveau thread */
+.pyNvz {
+
+}
+
+/* Survol du message "Nouvelle conversation dans ..." */
+.RnpT2b:focus .SfqTBc, .SfqTBc:hover {
+
+}
